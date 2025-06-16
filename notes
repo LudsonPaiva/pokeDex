@@ -1,8 +1,95 @@
+Documentação PokAPI = https://pokeapi.co/docs/v2#pokemon
+Dribble pokedex = https://dribbble.com/shots/6540871-Pokedex-App
 
+
+-------------------------------
 dribble = Site de designers que serve de inspiração
 
 npm install -g = node pack manager instale globalmente
 npm install -g http-server
 
+
 nttp-server ./ = abrir o servidor: Roboto
 é a fonte do android
+
+-----------------------------------
+API:
+-----------------------------------
+
+Informações importantes para a utilização de uma API:
+
+>>> REQUISIÇÃO AO SERVIDOR
+
+1) Requisição http:
+
+    Path: IP e porta do servidor
+
+    URL: [https: ](https://pokeapi.co/api/v2/pokemon)
+
+    URL é composta por ${IP}/${path = caminho de identificação ddo recurso}
+
+    ${IP} = https://pokeapi.co
+    ${path} = /api/v2/pokemon = recursso solicitado
+
+2) Tipo de solicitação: Request Method: 
+    | GET = Buscar
+    | POST = Inserir novo pokemon
+    | PUT = Atualizar o pokemon
+    | DELETE = Delemar um pokemon
+    | PATCH = 
+    ...
+
+3) Query string = filtro sendo passado para a API. 
+
+    Vem após o path = chave + Valor 
+    ?type=grass
+    https://pokeapi.co/api/v2/pokemon?type=grass
+
+    Mais de um atributo incluir o "&"
+
+
+    https://pokeapi.co/api/v2/pokemon?type=grass&name=i
+
+    Exemplo 2:
+    "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
+
+    Como são 1302 pokemons, ele não traz todos de uma vez, está limitado a 20
+
+        offset=20 = Quantidade de pokemons a ser exibido por página.
+        limit=20 = Página a ser solicitada. Primeira página é 0.
+
+4) Headers = configuração da requisição
+    Request Headers
+        - Authorizations: Normalmente as credenciais de autenticação são passadas no Header
+
+    Response Headers
+
+5) Body & status code = É o dado que eu quero transitar na transação
+
+    Mais utilizado em POST
+
+    Ex: Informar os dados do novo pokemon
+
+    Request Headers:
+        content-type: applications/json
+
+    Request Body {
+        "name":"Teste"
+    }
+
+
+>>> RESPOSTA DO SERVIDOR
+
+1) STATUS CODE
+    200 - 299 = Família Sucesso
+    300 - 399 = Família Redirect
+    400 - 499 = Família Erro por parte do cliente
+    500 - 599 = Família Erro interno do servidor
+    ...
+
+2) Response Headers
+    Como a resposta está configurada
+
+3) Response Body
+    - A resposta em si. 
+    - Não necessariamente precisa ter um body. Exemplo, os envios em POST
