@@ -24,9 +24,9 @@ function convertPokemonTypesToLi(pokemonTypes) {
 //document = documento atual que está na minha janela
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
-const limit = 5;
+const limit = 10;
 let offset = 0;
-const maxRecords = 11;
+const maxRecords = 151;
 
 
 function convertPokemonToLi(pokemon) {
@@ -76,9 +76,9 @@ loadPokemonItens(offset, limit)
 loadMoreButton.addEventListener('click', () => {
     offset += limit
     debugger
-    const qtdRecordNextPage = offset + limit
+    const qtdRecordsWithNextPage = offset + limit
 
-    if (qtdRecordNextPage >= maxRecords) {
+    if (qtdRecordsWithNextPage >= maxRecords) {
         const newLimit = maxRecords - offset
         loadPokemonItens(offset, newLimit)
 
